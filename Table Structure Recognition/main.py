@@ -6,12 +6,12 @@ import lxml.etree as etree
 import glob
 
 ############ To Do ############
-image_path = 'path to directory of images'
-xmlPath = 'path to save xml'
+image_path = '/content/table-detection/Images'
+xmlPath = '/content/table-detection/XML'
 
-config_fname = "path to config file of model" 
-checkpoint_path = "path to checkpoint directory"
-epoch = 'epoch_file.name'
+config_fname = '/content/CascadeTabNet/Config/cascade_mask_rcnn_hrnetv2p_w32_20e.py'
+checkpoint_path = '/content/'
+epoch = 'epoch_36.pth'
 ##############################
 
 
