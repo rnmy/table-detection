@@ -6,7 +6,7 @@ import lxml.etree as etree
 import glob
 
 ############ To Do ############
-image_path = '/content/table-detection/Images'
+image_path = '/content/table-detection/Images/*.jpg'
 xmlPath = '/content/table-detection/XML'
 
 config_fname = '/content/CascadeTabNet/Config/cascade_mask_rcnn_hrnetv2p_w32_20e.py'
@@ -20,6 +20,8 @@ model = init_detector(config_fname, checkpoint_path+epoch)
 # List of images in the image_path
 imgs = glob.glob(image_path)
 for i in imgs:
+    print("Processing " + i + "...")
+
     result = inference_detector(model, i)
     res_border = []
     res_bless = []
@@ -51,6 +53,8 @@ for i in imgs:
         if len(res_cell) != 0:
             for no,res in enumerate(res_bless):
                 root.append(borderless(res,cv2.imread(i),res_cell))
+                
+    print("Done processing " + i)
 
     myfile = open(xmlPath+i.split('/')[-1][:-3]+'xml', "w")
     myfile.write('<?xml version="1.0" encoding="UTF-8"?>\n')
