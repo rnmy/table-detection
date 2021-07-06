@@ -5,6 +5,7 @@ from lxml import etree
 import pytesseract
 from pytesseract import Output
 import pandas as pd
+from mmdet.apis import inference_detector, show_result, init_detector
 
 # import mmcv
 # import os
